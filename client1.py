@@ -61,7 +61,7 @@ while proxy:
         # msg = proxy.bookTicket(n,path)
         # print(msg)
     elif(choice==2):
-        print(f'\nINOX Cinema, {path} - Seating Arrangement:')
+        print(f'\nFlight Go-Air India, {path} - Seating Arrangement:')
         seats = pd.DataFrame(json.loads(proxy.showAvailableSeats(path.lower())))
         print('\n',seats.to_string(index=False))
     elif(choice==3):

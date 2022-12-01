@@ -64,7 +64,7 @@ def bookTicket(n,city):
         for i in range(1, seconds + 1):
             sleep(1)
             print('work done: ' + str(int(100*(i/seconds))) + '%')
-        return {'status':"Congratulations! You have booked seat number "+ str(n) +" at " + str(cinemaName)+", "+ str(city) , 'seats': seats.to_json(orient='records')}
+        return {'status':"Congratulations! You have booked seat number "+ str(n) +" at " + str(flightName)+", "+ str(city) , 'seats': seats.to_json(orient='records')}
     else:
         return {'status':"Sorry the seat you selected has already been booked, select another seat." , 'seats':seats.to_json(orient='records')}
 
@@ -110,12 +110,12 @@ def enter_critical_section(request,city):
     return json.dumps(temp)
 
 def serverDetails(city):
-    return f"\n{'*'*60}\n\nWelcome to INOX Cinema, "+ str(city)+". Served by port "+ str(port)+f"\n\n{'*'*60}"
+    return f"\n{'*'*60}\n\nWelcome to AirLine Booking System, "+ str(city)+". Served by port "+ str(port)+f"\n\n{'*'*60}"
 
 
 if __name__ == '__main__':
     berkeley.initiateClockServer()
-    cinemaName = "INOX Cinema"
+    flightName = "Go-Air India"
     seats = None
     database_proxy = xmlrpc.client.ServerProxy("http://localhost:9999")
 
@@ -123,7 +123,7 @@ if __name__ == '__main__':
         port = int(sys.argv[1])
 
     server = SimpleXMLRPCServer(("localhost", port),requestHandler=RequestHandler,allow_none=True)
-    print("Welcome to "+str(cinemaName) + " " + str(port) + " - " + str(os.getpid()))
+    print("Welcome to "+str(flightName) + " " + str(port) + " - " + str(os.getpid()))
     server.register_instance(node_id, "node_id")
     server.register_instance(clock, "clock")
     server.register_instance(seats,"seats")

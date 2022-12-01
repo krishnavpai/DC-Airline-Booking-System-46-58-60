@@ -1,13 +1,13 @@
 :load
 start cmd /k python database_server.py y
 
-start cmd /k python Cinemaserver.py 8000
+start cmd /k python FlightServer.py 8000
 
 
-start cmd /k python Cinemaserver.py 9000
+start cmd /k python FlightServer.py 9000
 
 
-start cmd /k python Cinemaserver.py 10000
+start cmd /k python FlightServer.py 10000
 
 
 
